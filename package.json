@@ -1,0 +1,70 @@
+{
+   "name": "swtich-chat-server",
+   "version": "0.0.1",
+   "description": "Switch Chat API",
+   "devDependencies": {
+      "@types/node": "^8.10.61",
+      "@types/swagger-ui-express": "^3.0.0",
+      "nodemon": "^1.18.10",
+      "ts-node": "3.3.0",
+      "typescript": "^3.7.2"
+   },
+   "dependencies": {
+      "basic-auth": "^2.0.1",
+      "bcryptjs": "^2.4.3",
+      "body-parser": "^1.18.3",
+      "cors": "^2.8.5",
+      "crypto": "^1.0.1",
+      "dotenv": "^7.0.0",
+      "express": "^4.16.4",
+      "express-session": "^1.15.6",
+      "faker": "^4.1.0",
+      "fs": "0.0.1-security",
+      "hbs": "^4.0.4",
+      "http": "0.0.0",
+      "i18n": "^0.10.0",
+      "jsonwebtoken": "^8.5.1",
+      "lodash": "^4.17.11",
+      "log4js": "^4.1.0",
+      "logrotator": "^1.1.0",
+      "moment": "^2.24.0",
+      "morgan": "^1.9.1",
+      "multer": "^1.4.1",
+      "nodemailer": "^6.1.0",
+      "nodemailer-express-handlebars": "^3.0.0",
+      "passport": "^0.4.0",
+      "passport-local": "^1.0.0",
+      "path": "^0.12.7",
+      "q": "^1.5.1",
+      "reflect-metadata": "^0.1.13",
+      "request": "^2.88.0",
+      "socket.io": "^2.2.0",
+      "swagger-jsdoc": "^3.2.8",
+      "swagger-ui-express": "^4.0.2",
+      "underscore": "^1.9.1"
+   },
+   "scripts": {
+      "production": "node ./build/server.js",
+      "start": "node -r ts-node/register ./src/server.ts",
+      "dev": "nodemon -x ts-node --project tsconfig.json src/server.ts",
+      "build": "tsc",
+      "migrate": "rm -r build/migration && npm run build && typeorm migration:run"
+   },
+   "nodemonConfig": {
+      "execMap": {
+         "ts": "ts-node"
+      },
+      "ignore": [
+         "**/*.test.ts",
+         "**/*.spec.ts",
+         ".git",
+         "node_modules",
+         "swaggerDocs"
+      ],
+      "watch": [
+         "src"
+      ],
+      "exec": "npm start",
+      "ext": "ts,js,json,yaml,yml"
+   }
+}
